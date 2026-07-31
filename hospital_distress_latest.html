@@ -1,0 +1,118 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Hospital distress census — 2026-07-31</title><style>
+*,*::before,*::after{box-sizing:border-box}
+:root{color-scheme:light;--surface:#fcfcfb;--surface-2:#f4f4f1;--border:#dedcd5;
+ --text:#0b0b0b;--text-2:#52514e;--text-3:#78776f;
+ --critical:#d03b3b;--serious:#ec835a;--warning:#fab219;--good:#0ca30c;--neutral:#9b9a92}
+@media (prefers-color-scheme:dark){:root:where(:not([data-theme=light])){
+ color-scheme:dark;--surface:#1a1a19;--surface-2:#232322;--border:#3a3a37;
+ --text:#fff;--text-2:#c3c2b7;--text-3:#96958c}}
+:root[data-theme=dark]{color-scheme:dark;--surface:#1a1a19;--surface-2:#232322;
+ --border:#3a3a37;--text:#fff;--text-2:#c3c2b7;--text-3:#96958c}
+body{margin:0;background:var(--surface);color:var(--text);
+ font:15px/1.55 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif}
+.wrap{max-width:1500px;margin:0 auto;padding:32px 24px 72px}
+h1{font-size:1.5rem;margin:0 0 4px;letter-spacing:-.01em}
+h2{font-size:1.05rem;margin:40px 0 10px;letter-spacing:-.005em}
+.sub{color:var(--text-2);font-size:.9rem;margin:0 0 24px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:20px 0 8px}
+.tile{background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
+.tile .v{font-size:1.7rem;font-weight:600;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.tile .k{color:var(--text-2);font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;margin-top:2px}
+.tile .d{color:var(--text-3);font-size:.75rem;margin-top:4px}
+.note{background:var(--surface-2);border:1px solid var(--border);border-left:3px solid var(--warning);
+ border-radius:8px;padding:12px 16px;color:var(--text-2);font-size:.85rem;margin:18px 0}
+.note.method{border-left-color:var(--neutral)}
+.scroll{overflow-x:auto;border:1px solid var(--border);border-radius:10px;margin-top:8px}
+table{border-collapse:collapse;width:100%;font-size:.86rem}
+th,td{text-align:left;padding:8px 11px;border-bottom:1px solid var(--border);white-space:nowrap}
+th{background:var(--surface-2);position:sticky;top:0;cursor:pointer;user-select:none;
+ font-weight:600;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-2)}
+th:hover{color:var(--text)}
+th[data-dir]::after{content:"";margin-left:5px}
+th[data-dir="1"]::after{content:"\2191"}
+th[data-dir="-1"]::after{content:"\2193"}
+tbody tr:hover{background:var(--surface-2)}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+th.num{font-variant-numeric:normal}
+.pill{display:inline-flex;align-items:center;gap:5px;font-size:.76rem;font-weight:600;
+ padding:2px 8px;border-radius:999px;border:1px solid currentColor}
+.pill.critical{color:var(--critical)}.pill.serious{color:var(--serious)}
+.pill.warning{color:var(--warning)}.pill.neutral{color:var(--neutral)}
+.tag{display:inline-block;font-size:.72rem;padding:1px 6px;border-radius:4px;
+ background:var(--surface-2);border:1px solid var(--border);color:var(--text-2);margin-right:4px}
+.reason{color:var(--text-2);font-size:.8rem;white-space:normal;min-width:280px}
+.empty{color:var(--text-2);padding:14px 2px;font-size:.9rem}
+footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--border);
+ color:var(--text-3);font-size:.78rem}
+code{font-size:.85em;background:var(--surface-2);padding:1px 4px;border-radius:3px}
+
+.chartwrap{background:var(--surface-2);border:1px solid var(--border);border-radius:10px;
+ padding:20px 18px 14px;margin:18px 0}
+.legend{display:flex;gap:18px;flex-wrap:wrap;margin:0 0 10px 4px;font-size:.82rem;
+ color:var(--text-2)}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.swatch{width:11px;height:11px;border-radius:3px;display:inline-block}
+svg{display:block;width:100%;height:auto;overflow:visible}
+.gridline{stroke:var(--border);stroke-width:1}
+.axis{fill:var(--text-3);font-size:11px}
+.slabel{font-size:11.5px;font-weight:600}
+.answer{background:var(--surface-2);border:1px solid var(--border);border-left:3px solid var(--good);
+ border-radius:8px;padding:16px 18px;margin:18px 0}
+.answer h3{margin:0 0 8px;font-size:1rem}
+.answer p{margin:6px 0;color:var(--text-2)}
+.answer strong{color:var(--text)}
+:root{--s-nonprofit:#2a78d6;--s-forprofit:#eb6834;--s-government:#1baf7a;}@media (prefers-color-scheme:dark){:root:where(:not([data-theme=light])){--s-nonprofit:#3987e5;--s-forprofit:#d95926;--s-government:#199e70;}}:root[data-theme="dark"]{--s-nonprofit:#3987e5;--s-forprofit:#d95926;--s-government:#199e70;}</style></head><body><div class="wrap">
+<h1>Hospital distress — the full census</h1>
+<p class="sub">Every Medicare-participating hospital's annual cost report, FY2016–FY2025
+· 5,520 hospitals in the latest complete year · generated 2026-07-31 22:24 UTC</p>
+
+<div class="answer">
+<h3>Are more hospitals distressed than in the past?</h3>
+<p><strong>No — fewer hospitals are losing money than before the pandemic.</strong>
+28.6% of hospitals ran a negative total margin in FY2025, against
+32.0% in FY2016 and a pre-pandemic norm around 32–35%.</p>
+<p>The real event is <strong>FY2022</strong>, when 41.3% lost money
+as pandemic relief ran out and labour costs stayed high — and it hit
+<strong>nonprofits hardest</strong>, 47% of
+them in the red with a median margin of
++0.6%. The sector has recovered every year
+since. That is the opposite of a slow bleed, and it matters for reading the bond screen:
+distressed hospital credits there are <em>individual</em> situations, not a sector in
+decline.</p>
+<p>Government hospitals are the persistent exception — a median margin near
++2.9% even in a good year, structurally
+thinner than either nonprofits or for-profits throughout.</p>
+</div>
+
+<h2>Share of hospitals losing money, by ownership</h2>
+<div class="chartwrap"><div class="legend"><span><i class="swatch" style="background:var(--s-nonprofit)"></i>Nonprofit</span><span><i class="swatch" style="background:var(--s-forprofit)"></i>For-profit</span><span><i class="swatch" style="background:var(--s-government)"></i>Government</span></div><svg viewBox="0 0 900 340" role="img" aria-label="Share of hospitals losing money by ownership, 2016 to 2025"><line class="gridline" x1="46" x2="796" y1="306.0" y2="306.0"/><text class="axis" x="38" y="310.0" text-anchor="end">0%</text><line class="gridline" x1="46" x2="796" y1="253.3" y2="253.3"/><text class="axis" x="38" y="257.3" text-anchor="end">10%</text><line class="gridline" x1="46" x2="796" y1="200.5" y2="200.5"/><text class="axis" x="38" y="204.5" text-anchor="end">20%</text><line class="gridline" x1="46" x2="796" y1="147.8" y2="147.8"/><text class="axis" x="38" y="151.8" text-anchor="end">30%</text><line class="gridline" x1="46" x2="796" y1="95.1" y2="95.1"/><text class="axis" x="38" y="99.1" text-anchor="end">40%</text><line class="gridline" x1="46" x2="796" y1="42.4" y2="42.4"/><text class="axis" x="38" y="46.4" text-anchor="end">50%</text><text class="axis" x="46.0" y="328" text-anchor="middle">2016</text><text class="axis" x="129.3" y="328" text-anchor="middle">2017</text><text class="axis" x="212.7" y="328" text-anchor="middle">2018</text><text class="axis" x="296.0" y="328" text-anchor="middle">2019</text><text class="axis" x="379.3" y="328" text-anchor="middle">2020</text><text class="axis" x="462.7" y="328" text-anchor="middle">2021</text><text class="axis" x="546.0" y="328" text-anchor="middle">2022</text><text class="axis" x="629.3" y="328" text-anchor="middle">2023</text><text class="axis" x="712.7" y="328" text-anchor="middle">2024</text><text class="axis" x="796.0" y="328" text-anchor="middle">2025</text><path d="M46.0,147.9 L129.3,154.2 L212.7,135.0 L296.0,150.4 L379.3,159.3 L462.7,206.3 L546.0,57.7 L629.3,122.4 L712.7,155.8 L796.0,167.2" fill="none" stroke="var(--s-nonprofit)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><circle cx="46.0" cy="147.9" r="4.5" fill="var(--s-nonprofit)" stroke="var(--surface-2)" stroke-width="2"/><circle cx="129.3" cy="154.2" r="4.5" fill="var(--s-nonprofit)" stroke="var(--surface-2)" stroke-width="2"/><circle cx="212.7" cy="135.0" r="4.5" fill="var(--s-nonprofit)" stroke="var(--surface-2)" stroke-width="2"/><circle cx="296.0" cy="150.4" r="4.5" fill="var(--s-nonprofit)" stroke="var(--surface-2)" stroke-width="2"/><circle cx="379.3" cy="159.3" r="4.5" fill="var(--s-nonprofit)" stroke="var(--surface-2)" stroke-width="2"/><circle cx="462.7" cy="206.3" r="4.5" fill="var(--s-nonprofit)" stroke="var(--surface-2)" stroke-width="2"/><circle cx="546.0" cy="57.7" r="4.5" fill="var(--s-nonprofit)" stroke="var(--surface-2)" stroke-width="2"/><circle cx="629.3" cy="122.4" r="4.5" fill="var(--s-nonprofit)" stroke="var(--surface-2)" stroke-width="2"/><circle cx="712.7" cy="155.8" r="4.5" fill="var(--s-nonprofit)" stroke="var(--surface-2)" stroke-width="2"/><circle cx="796.0" cy="167.2" r="4.5" fill="var(--s-nonprofit)" stroke="var(--surface-2)" stroke-width="2"/><path d="M46.0,154.6 L129.3,133.9 L212.7,135.5 L296.0,142.1 L379.3,174.8 L462.7,200.1 L546.0,136.9 L629.3,136.1 L712.7,137.8 L796.0,161.5" fill="none" stroke="var(--s-forprofit)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><circle cx="46.0" cy="154.6" r="4.5" fill="var(--s-forprofit)" stroke="var(--surface-2)" stroke-width="2"/><circle cx="129.3" cy="133.9" r="4.5" fill="var(--s-forprofit)" stroke="var(--surface-2)" stroke-width="2"/><circle cx="212.7" cy="135.5" r="4.5" fill="var(--s-forprofit)" stroke="var(--surface-2)" stroke-width="2"/><circle cx="296.0" cy="142.1" r="4.5" fill="var(--s-forprofit)" stroke="var(--surface-2)" stroke-width="2"/><circle cx="379.3" cy="174.8" r="4.5" fill="var(--s-forprofit)" stroke="var(--surface-2)" stroke-width="2"/><circle cx="462.7" cy="200.1" r="4.5" fill="var(--s-forprofit)" stroke="var(--surface-2)" stroke-width="2"/><circle cx="546.0" cy="136.9" r="4.5" fill="var(--s-forprofit)" stroke="var(--surface-2)" stroke-width="2"/><circle cx="629.3" cy="136.1" r="4.5" fill="var(--s-forprofit)" stroke="var(--surface-2)" stroke-width="2"/><circle cx="712.7" cy="137.8" r="4.5" fill="var(--s-forprofit)" stroke="var(--surface-2)" stroke-width="2"/><circle cx="796.0" cy="161.5" r="4.5" fill="var(--s-forprofit)" stroke="var(--surface-2)" stroke-width="2"/><path d="M46.0,82.9 L129.3,58.1 L212.7,67.2 L296.0,78.3 L379.3,134.0 L462.7,202.2 L546.0,95.5 L629.3,67.7 L712.7,94.2 L796.0,110.2" fill="none" stroke="var(--s-government)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><circle cx="46.0" cy="82.9" r="4.5" fill="var(--s-government)" stroke="var(--surface-2)" stroke-width="2"/><circle cx="129.3" cy="58.1" r="4.5" fill="var(--s-government)" stroke="var(--surface-2)" stroke-width="2"/><circle cx="212.7" cy="67.2" r="4.5" fill="var(--s-government)" stroke="var(--surface-2)" stroke-width="2"/><circle cx="296.0" cy="78.3" r="4.5" fill="var(--s-government)" stroke="var(--surface-2)" stroke-width="2"/><circle cx="379.3" cy="134.0" r="4.5" fill="var(--s-government)" stroke="var(--surface-2)" stroke-width="2"/><circle cx="462.7" cy="202.2" r="4.5" fill="var(--s-government)" stroke="var(--surface-2)" stroke-width="2"/><circle cx="546.0" cy="95.5" r="4.5" fill="var(--s-government)" stroke="var(--surface-2)" stroke-width="2"/><circle cx="629.3" cy="67.7" r="4.5" fill="var(--s-government)" stroke="var(--surface-2)" stroke-width="2"/><circle cx="712.7" cy="94.2" r="4.5" fill="var(--s-government)" stroke="var(--surface-2)" stroke-width="2"/><circle cx="796.0" cy="110.2" r="4.5" fill="var(--s-government)" stroke="var(--surface-2)" stroke-width="2"/><text class="slabel" x="808.0" y="114.2" fill="var(--s-government)">Government 37%</text><text class="slabel" x="808.0" y="165.5" fill="var(--s-forprofit)">For-profit 27%</text><text class="slabel" x="808.0" y="180.5" fill="var(--s-nonprofit)">Nonprofit 26%</text></svg></div>
+
+<div class="note method"><strong>What is measured.</strong> Total margin = net income ÷ total
+revenue, taken from Worksheet G-3 of each hospital's cost report. This is the all-in figure
+and is comparable to published benchmarks. It is <em>not</em> the "operating margin" Kaufman
+Hall and the AHA report — that excludes non-operating income and would not match. Every
+hospital is counted once per fiscal year, using its most complete filing, and years are the
+cost report's own fiscal year, which is staggered across the calendar rather than aligned to
+it.</div>
+
+<div class="note"><strong>Why this exists alongside the bond screen.</strong> The bond panel
+only ever sees hospitals whose debt some fund still holds — a small and self-selected slice
+that omits exactly the credits a fund has already sold. This is the whole census, from an
+entirely separate source, so the two agreeing is corroboration rather than an echo.</div>
+
+<div class="note"><strong>Excluded as incomplete:</strong> FY2014 (18), FY2015 (3,404), FY2026 (12). CMS names each archive for its <em>processing</em> year, not the fiscal years inside it, so the newest and oldest years of any ingest hold only part of the census. Charting them beside complete years would show a cliff that is an artefact of ingestion rather than anything about hospitals.</div>
+
+<h2>By fiscal year</h2>
+<div class="scroll"><table><thead><tr>
+<th rowspan="2">FY</th><th rowspan="2" class="num">Hospitals</th>
+<th rowspan="2" class="num">Median margin</th><th rowspan="2" class="num">% losing money</th>
+<th colspan="2" class="num">Nonprofit</th><th colspan="2" class="num">For-profit</th>
+<th colspan="2" class="num">Government</th>
+</tr><tr><th class="num">median</th><th class="num">% losing</th>
+<th class="num">median</th><th class="num">% losing</th>
+<th class="num">median</th><th class="num">% losing</th></tr></thead>
+<tbody><tr><td>2016</td><td class="num">5,851</td><td class="num">+4.0%</td><td class="num"><strong>32.0%</strong></td><td class="num">+4.0%</td><td class="num">30%</td><td class="num">+6.8%</td><td class="num">29%</td><td class="num">+1.2%</td><td class="num">42%</td></tr><tr><td>2017</td><td class="num">5,833</td><td class="num">+3.7%</td><td class="num"><strong>33.4%</strong></td><td class="num">+4.4%</td><td class="num">29%</td><td class="num">+5.5%</td><td class="num">33%</td><td class="num">+0.5%</td><td class="num">47%</td></tr><tr><td>2018</td><td class="num">5,791</td><td class="num">+3.5%</td><td class="num"><strong>34.8%</strong></td><td class="num">+3.7%</td><td class="num">32%</td><td class="num">+6.1%</td><td class="num">32%</td><td class="num">+0.7%</td><td class="num">45%</td></tr><tr><td>2019</td><td class="num">5,763</td><td class="num">+4.1%</td><td class="num"><strong>32.6%</strong></td><td class="num">+4.4%</td><td class="num">30%</td><td class="num">+6.2%</td><td class="num">31%</td><td class="num">+1.6%</td><td class="num">43%</td></tr><tr><td>2020</td><td class="num">5,740</td><td class="num">+5.4%</td><td class="num"><strong>27.8%</strong></td><td class="num">+4.9%</td><td class="num">28%</td><td class="num">+8.6%</td><td class="num">25%</td><td class="num">+3.6%</td><td class="num">33%</td></tr><tr><td>2021</td><td class="num">5,756</td><td class="num">+10.0%</td><td class="num"><strong>19.4%</strong></td><td class="num">+9.7%</td><td class="num">19%</td><td class="num">+11.2%</td><td class="num">20%</td><td class="num">+9.1%</td><td class="num">20%</td></tr><tr><td>2022</td><td class="num">5,756</td><td class="num">+2.3%</td><td class="num"><strong>41.3%</strong></td><td class="num">+0.6%</td><td class="num">47%</td><td class="num">+7.2%</td><td class="num">32%</td><td class="num">+1.9%</td><td class="num">40%</td></tr><tr><td>2023</td><td class="num">5,794</td><td class="num">+3.6%</td><td class="num"><strong>35.9%</strong></td><td class="num">+3.4%</td><td class="num">35%</td><td class="num">+6.8%</td><td class="num">32%</td><td class="num">+1.0%</td><td class="num">45%</td></tr><tr><td>2024</td><td class="num">5,798</td><td class="num">+5.1%</td><td class="num"><strong>31.6%</strong></td><td class="num">+5.2%</td><td class="num">28%</td><td class="num">+7.7%</td><td class="num">32%</td><td class="num">+2.1%</td><td class="num">40%</td></tr><tr><td>2025</td><td class="num">5,520</td><td class="num">+6.0%</td><td class="num"><strong>28.6%</strong></td><td class="num">+6.1%</td><td class="num">26%</td><td class="num">+9.1%</td><td class="num">27%</td><td class="num">+2.9%</td><td class="num">37%</td></tr></tbody></table></div>
+
+<footer>Source: CMS Healthcare Cost Report Information System (HCRIS), Form CMS-2552-10
+Worksheet G-3. Public-use files, refreshed quarterly by CMS.</footer>
+</div></body></html>

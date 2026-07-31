@@ -1,0 +1,82 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Healthcare credit</title><style>
+*,*::before,*::after{box-sizing:border-box}
+:root{color-scheme:light;--surface:#fcfcfb;--surface-2:#f4f4f1;--border:#dedcd5;
+ --text:#0b0b0b;--text-2:#52514e;--text-3:#78776f;
+ --critical:#d03b3b;--serious:#ec835a;--warning:#fab219;--good:#0ca30c;--neutral:#9b9a92}
+@media (prefers-color-scheme:dark){:root:where(:not([data-theme=light])){
+ color-scheme:dark;--surface:#1a1a19;--surface-2:#232322;--border:#3a3a37;
+ --text:#fff;--text-2:#c3c2b7;--text-3:#96958c}}
+:root[data-theme=dark]{color-scheme:dark;--surface:#1a1a19;--surface-2:#232322;
+ --border:#3a3a37;--text:#fff;--text-2:#c3c2b7;--text-3:#96958c}
+body{margin:0;background:var(--surface);color:var(--text);
+ font:15px/1.55 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif}
+.wrap{max-width:1500px;margin:0 auto;padding:32px 24px 72px}
+h1{font-size:1.5rem;margin:0 0 4px;letter-spacing:-.01em}
+h2{font-size:1.05rem;margin:40px 0 10px;letter-spacing:-.005em}
+.sub{color:var(--text-2);font-size:.9rem;margin:0 0 24px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:20px 0 8px}
+.tile{background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
+.tile .v{font-size:1.7rem;font-weight:600;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.tile .k{color:var(--text-2);font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;margin-top:2px}
+.tile .d{color:var(--text-3);font-size:.75rem;margin-top:4px}
+.note{background:var(--surface-2);border:1px solid var(--border);border-left:3px solid var(--warning);
+ border-radius:8px;padding:12px 16px;color:var(--text-2);font-size:.85rem;margin:18px 0}
+.note.method{border-left-color:var(--neutral)}
+.scroll{overflow-x:auto;border:1px solid var(--border);border-radius:10px;margin-top:8px}
+table{border-collapse:collapse;width:100%;font-size:.86rem}
+th,td{text-align:left;padding:8px 11px;border-bottom:1px solid var(--border);white-space:nowrap}
+th{background:var(--surface-2);position:sticky;top:0;cursor:pointer;user-select:none;
+ font-weight:600;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-2)}
+th:hover{color:var(--text)}
+th[data-dir]::after{content:"";margin-left:5px}
+th[data-dir="1"]::after{content:"\2191"}
+th[data-dir="-1"]::after{content:"\2193"}
+tbody tr:hover{background:var(--surface-2)}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+th.num{font-variant-numeric:normal}
+.pill{display:inline-flex;align-items:center;gap:5px;font-size:.76rem;font-weight:600;
+ padding:2px 8px;border-radius:999px;border:1px solid currentColor}
+.pill.critical{color:var(--critical)}.pill.serious{color:var(--serious)}
+.pill.warning{color:var(--warning)}.pill.neutral{color:var(--neutral)}
+.tag{display:inline-block;font-size:.72rem;padding:1px 6px;border-radius:4px;
+ background:var(--surface-2);border:1px solid var(--border);color:var(--text-2);margin-right:4px}
+.reason{color:var(--text-2);font-size:.8rem;white-space:normal;min-width:280px}
+.empty{color:var(--text-2);padding:14px 2px;font-size:.9rem}
+footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--border);
+ color:var(--text-3);font-size:.78rem}
+code{font-size:.85em;background:var(--surface-2);padding:1px 4px;border-radius:3px}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;
+ margin:22px 0}
+.card{background:var(--surface-2);border:1px solid var(--border);border-radius:10px;
+ padding:18px 20px;text-decoration:none;color:inherit;display:block;transition:border-color .15s}
+.card:hover{border-color:var(--text-3)}
+.card h2{margin:0 0 6px;font-size:1.05rem}
+.card p{margin:0 0 10px;color:var(--text-2);font-size:.87rem;line-height:1.5}
+.card .meta{color:var(--text-3);font-size:.76rem}
+.card.missing{opacity:.55;cursor:default}
+.card.missing .meta{color:var(--warning)}
+.q{color:var(--text-2);font-size:.87rem;margin:4px 0 0}
+</style></head><body><div class="wrap">
+<h1>Healthcare credit</h1>
+<p class="sub">Bond, loan and provider-financial coverage · generated 2026-07-31 22:24 UTC</p>
+
+<div class="cards"><a class="card" href="hospital_distress_latest.html"><h2>Hospital &amp; SNF distress census</h2><p>Are more providers losing money than in the past? Every Medicare-participating hospital and skilled-nursing facility, FY2016 onward — the full census, no survivorship bias.</p><div class="meta">updated 2026-07-31 22:24 UTC · 16 KB</div></a><a class="card" href="bond_screen_latest.html"><h2>Credit screen — what is cheap</h2><p>Healthcare debt trading wide of its own market: distressed and stressed tiers, quarter-over-quarter widening, and where funds disagree on the same bond's mark.</p><div class="meta">updated 2026-07-31 22:24 UTC · 1,065 KB</div></a><a class="card" href="coverage_bonds_latest.html"><h2>Coverage universe — bonds &amp; loans</h2><p>Every instrument your coverage names have outstanding, with yield, spread and maturity, plus sub-sector medians on your own equity taxonomy.</p><div class="meta">updated 2026-07-31 22:24 UTC · 542 KB</div></a><a class="card" href="healthcare_loans_latest.html"><h2>Healthcare leveraged loans</h2><p>The loan market, quoted on discount margin — including the private borrowers (Waystar, athenahealth, Radiology Partners) that have no listed equity and appear nowhere else.</p><div class="meta">updated 2026-07-31 22:24 UTC · 41 KB</div></a></div>
+
+<div class="note method"><strong>How the pieces fit.</strong> Two independent evidence bases,
+because neither can substitute for the other. The <strong>bond and loan pages</strong> price
+individual instruments from fund holdings filings — but they only ever see debt some fund
+still owns, which is a self-selected slice that omits exactly the credits a manager has
+already sold. The <strong>census</strong> covers every provider from cost reports, so it can
+say whether the sector is deteriorating at all. Individual distressed credits mean something
+quite different depending on which way the census is pointing.</div>
+
+<div class="note"><strong>Freshness.</strong> Bond and loan marks come from quarterly holdings
+filings and run roughly 60 days in arrears — they show where a bond <em>is</em>, not where you
+could deal. Cost reports refresh quarterly and are re-pulled automatically when they go stale.
+Everything regenerates Monday mornings; new debt filings are scanned weekly and posted to
+<strong>#credit</strong>.</div>
+
+<footer>Generated by <code>bond_credit</code>. Sources: SEC EDGAR (NPORT-P holdings, 8-K,
+424B5/FWP), FRED (Treasury curve, ICE BofA index OAS, SOFR), CMS HCRIS cost reports.</footer>
+</div></body></html>
