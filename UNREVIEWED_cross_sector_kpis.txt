@@ -1,4 +1,4 @@
-Cross-Sector KPI sheets published 2026-11-10 18:02 UTC WITHOUT a complete Codex + Fable review.
-Code digest: b78c505275ce6132
+Cross-Sector KPI sheets published 2026-11-10 20:02 UTC WITHOUT a complete Codex + Fable review.
+Code digest: 3a053954bc168d89
 Clear this file only when reviews/review_log.jsonl carries clean records for that
 digest from both reviewers.
